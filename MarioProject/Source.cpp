@@ -46,6 +46,27 @@ void CloseSDL()
 	SDL_Quit();
 }
 
+bool Update()
+{
+	// Event handler
+	SDL_Event e;
+
+	// Get events
+	SDL_PollEvent(&e);
+
+	// Handle the events
+	switch (e.type)
+	{
+		// Click the 'X' to quit
+	case SDL_QUIT:
+		return true;
+		break;
+	}
+	
+	return false;
+	
+}
+
 
 int main(int argc, char* args[])
 {
@@ -54,7 +75,14 @@ int main(int argc, char* args[])
 	bool InitSDL();
 	if(InitSDL())
 	{
-		SDL_Delay(5000);
+		// Flag to check if we wish to quit
+		bool quit = false;
+
+		// Game Loop
+		while(!quit)
+		{
+			quit = Update();
+		}
 	}
 	CloseSDL();
 
