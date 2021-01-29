@@ -20,11 +20,15 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="SDL2\lib\x64\SDL2.dll" />
+    <ClInclude Include="constants.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Library Include="SDL2\lib\x64\SDL2.lib" />
-    <Library Include="SDL2\lib\x64\SDL2main.lib" />
-    <Library Include="SDL2\lib\x64\SDL2test.lib" />
+    <Library Include="SDL2\SDL\SDL2.lib" />
+    <Library Include="SDL2\SDL\SDL2_image.lib" />
+    <Library Include="SDL2\SDL\SDL2_mixer.lib" />
+    <Library Include="SDL2\SDL\SDL2main.lib" />
+    <Library Include="SDL2\SDL\SDL2test.lib" />
   </ItemGroup>
 </Project>
