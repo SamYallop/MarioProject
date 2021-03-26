@@ -180,7 +180,7 @@ int main(int argc, char* args[])
 {
 
 	// Function prototypes
-	InitSDL();
+	//InitSDL();
 	if (InitSDL())
 	{
 		game_screen_manager = new GameScreenManager(g_renderer, SCREEN_LEVEL1);
@@ -196,8 +196,8 @@ int main(int argc, char* args[])
 			quit = Update();
 		}
 	}
-	SDL_Texture* LoadTextureFromFile(string path);
-	Renderer();
+	//SDL_Texture* LoadTextureFromFile(string path);
+	//Renderer();
 	//FreeTexture();
 	CloseSDL();
 
