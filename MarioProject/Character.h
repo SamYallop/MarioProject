@@ -20,6 +20,7 @@ protected:
 	bool m_jumping;
 	bool m_can_jump;
 	float m_jump_force;
+	float m_collision_radius;
 private:
 	FACING m_facing_direction;
 public:
@@ -31,5 +32,6 @@ public:
 	Vector2D GetPosition();
 	virtual void AddGravity(float deltaTime);
 	virtual void Jump();
+	float GetCollisionRadius();
 };
 

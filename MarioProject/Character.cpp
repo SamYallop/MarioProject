@@ -20,6 +20,8 @@ Character::Character(SDL_Renderer* renderer, string imagePath, Vector2D start_po
 	m_facing_direction = FACING_RIGHT;
 	m_moving_left = false;
 	m_moving_right = false;
+	m_can_jump = true;
+	m_collision_radius = 15.0f;
 }
 
 Character::~Character()
@@ -55,9 +57,10 @@ void Character::Update(float deltaTime, SDL_Event e)
 		{
 			m_jumping = false;
 		}
-
-		AddGravity(deltaTime);
 	}
+
+	AddGravity(deltaTime);
+	
 	if(m_moving_left)
 	{
 		MoveLeft(deltaTime);
@@ -65,31 +68,6 @@ void Character::Update(float deltaTime, SDL_Event e)
 	else if (m_moving_right)
 	{
 		MoveRight(deltaTime);
-	}
-	switch (e.type)
-	{
-	case SDL_KEYDOWN:
-		switch (e.key.keysym.sym)
-		{
-		case SDLK_LEFT:
-			m_moving_left = true;
-		case SDLK_RIGHT:
-			m_moving_right = true;
-		case SDLK_UP:
-			if (m_can_jump = true)
-			{
-				Jump();
-			}
-		}
-		break;
-	case SDL_KEYUP:
-		switch (e.key.keysym.sym)
-		{
-		case SDLK_LEFT:
-			m_moving_left = false;
-		case SDLK_RIGHT:
-			m_moving_right = false;
-		}
 	}
 }
 
@@ -124,7 +102,7 @@ void Character::AddGravity(float deltaTime)
 	}
 	else
 	{
-		//m_can_jump = true;
+		m_can_jump = true;
 	}
 }
 
@@ -137,6 +115,12 @@ void Character::Jump()
 		m_can_jump = false;
 	}
 }
+
+float Character::GetCollisionRadius()
+{
+	return m_collision_radius;
+}
+
 
 
 // Up to Tutorial 7 after adding jumping

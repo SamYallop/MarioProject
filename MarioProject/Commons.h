@@ -16,6 +16,14 @@ struct Vector2D
 		x = initial_x;
 		y = initial_y;
 	}
+
+	Rect2D(float x_pos, float y_pos, float width, float height)
+	{
+		x = x_pos;
+		y = y_pos;
+		this->width = width;
+		this->height = height;
+	}
 };
 
 enum SCREENS
