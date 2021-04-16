@@ -4,6 +4,7 @@
 #include "Character.h"
 #include "CharacterMario.h"
 #include "CharacterLuigi.h"
+#include "LevelMap.h"
 
 class Character;
 
@@ -19,6 +20,8 @@ private:
 	Character* my_character;
 	Character* mario_character;
 	Character* luigi_character;
+	void SetLevelMap();
+	LevelMap* m_level_map;
 public:
 	GameScreenLevel1(SDL_Renderer* renderer);
 	~GameScreenLevel1();
