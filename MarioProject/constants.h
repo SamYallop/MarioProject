@@ -14,6 +14,8 @@
 // Tile Size
 #define TILE_WIDTH 32
 #define TILE_HEIGHT 32
+// Screenshake
+#define SHAKE_DURATION 0.25f
 #include <iostream>
 using namespace std;
 
