@@ -5,6 +5,9 @@
 #include "CharacterMario.h"
 #include "CharacterLuigi.h"
 #include "LevelMap.h"
+#include <vector>
+
+#include "CharacterKoopa.h"
 
 class POWBlock;
 
@@ -32,6 +35,12 @@ private:
 	float m_background_yPos;
 
 	void DoScreenshake();
+
+	void UpdateEnemies(float deltaTime, SDL_Event e);
+	void CreateKoopa(Vector2D position, FACING direction, float speed);
+
+	vector<CharacterKoopa*> m_enemies;
+	float newEnemyTimer;
 	
 public:
 	GameScreenLevel1(SDL_Renderer* renderer);
@@ -41,5 +50,6 @@ public:
 	void Update(float deltaTime, SDL_Event e) override;
 
 	void UpdatePOWBlock();
+
 };
 

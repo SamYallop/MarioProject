@@ -5,6 +5,7 @@ Character::Character(SDL_Renderer* renderer, string imagePath, Vector2D start_po
 {
 	m_renderer = renderer;
 	m_position = start_position;
+	m_alive = true;
 	m_texture = new Texture2D(m_renderer);
 	if (!m_texture->LoadFromFile(imagePath))
 	{
@@ -137,4 +138,9 @@ float Character::GetCollisionRadius()
 Rect2D Character::GetCollisionBox()
 {
 	return Rect2D(m_position.x, m_position.y, m_texture->GetWidth(), m_texture->GetHeight());
+}
+
+void Character::SetAlive(bool isAlive)
+{
+	m_alive = isAlive;
 }

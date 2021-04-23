@@ -40,5 +40,12 @@ public:
 
 	bool IsJumping() { return m_jumping; };
 	void CancelJump() { m_jumping = false; };
+
+	void SetAlive(bool isAlive);
+
+	bool GetAlive() { return m_alive; };
+
+protected:
+	bool m_alive;
 };
 
